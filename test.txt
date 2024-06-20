@@ -1,2 +1,0 @@
-Password: car
-Hashed Value: f49c6dec5cb69def40e7242f890ee7b8efae04d6bb7539e354d4b63b7abe93bb
