@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Live Events</h1>
+<div class="row">
+
+    {% for live_event in live_events %}
+    <div class="col-md-6 mb-4">
+        <h3>{{ live_event.name }}</h3>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ live_event.video_ID }}" allowfullscreen></iframe>
+        </div>
+        <p>{{ live_event.description }}</p> 
+        <p>Created at: {{ live_event.created_at }}</p>
+    </div>
+    {% empty %}
+    <div class="col-md-12">
+        <p>No live events scheduled.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

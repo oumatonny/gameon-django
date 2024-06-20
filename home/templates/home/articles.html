@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Articles</h1>
+<ul>
+    {% for article in articles %}
+    <li>{{ article.title }}</li>
+    {% empty %}
+    <li>You haven't written any articles yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

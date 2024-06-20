@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>Your Booked Events</h2>
+<div class="row">
+
+    {% for booking in booked_events %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% if booking.event.image %}{{ booking.event.image.url }}{% else %}{% static 'images/placeholder.png' %}{% endif %}" class="card-img-top" alt="{% if booking.event.image %}{{ booking.event.name }}{% else %}Placeholder{% endif %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ booking.event.name }}</h5>
+                <p class="card-text">{{ booking.event.description }}</p>
+                <p class="card-text"><small class="text-muted">{{ booking.event.date }}</small></p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-md-12">
+        <p>You haven't booked any events yet.</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

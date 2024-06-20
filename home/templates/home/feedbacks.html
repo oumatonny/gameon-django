@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Feedback on Your Articles</h1>
+<ul>
+    {% for feedback in feedbacks %}
+    <li>
+        <p>{{ feedback.comment.article.title }}</p>
+        <p>Feedback: {{ feedback.text }}</p>
+    </li>
+    {% empty %}
+    <li>No feedback yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

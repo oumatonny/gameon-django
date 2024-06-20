@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <hr>
+
+    <h3>Comments</h3>
+    {% if comments %}
+
+        {% for comment in comments %}
+        <div class="row">
+        <div class="col-md-4">
+            {% if comment.article.image %}
+          
+                <img src="{{ comment.article.image.url }}" class="card-img" alt="{{ comment.article.title }}">
+            {% else %}
+                <img src="{% static 'images/placeholder.png' %}" class="card-img" alt="{{ comment.article.title }}">
+            {% endif %}
+            
+        </div>
+        <div class="col-md-7"> <p>{{ comment.article.content }}</p> </div> </div>
+        <p>{{ article.content }}</p>
+    <hr/>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <p class='bg-success box shadow card p-2' > Comments </p>
+
+        </div>
+        <div class="col"></div>
+    </div>
+            <div class="comment">
+                <p>{{ comment.content }}</p>
+                <p class="comment-metadata">
+                    <small class="text-muted">By {{ comment.user.username }} on {{ comment.created_at }}</small>
+                </p>
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No comments yet.</p>
+    {% endif %}
+
+{% endblock %}

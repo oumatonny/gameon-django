@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Comments on Your Articles</h1>
+<div class="container">
+<ul>
+    <li>
+        {% if article.image %}
+        <img src="{{ article.image.url }}" class="card-img" style="width: 500px; height: auto;" alt="{{ article.title }}">
+        {% else %}
+        <img src="{% static 'images/placeholder.png' %}" class="card-img img-fluid" style="width: 500px; height: auto;" alt="{{ article.title }}">
+        {% endif %}
+        <p>Article: {{ article.title }}</p>
+        <p>{{ article.content }}</p>
+    </li>
+    
+ 
+</ul>
+</div>
+{% endblock %}
